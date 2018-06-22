@@ -1,0 +1,34 @@
+#include "repository_exceptions.h"
+
+FileException::FileException(const std::string & msg) : message(msg)
+{
+}
+
+const char * FileException::what()
+{
+    return message.c_str();
+}
+
+RepositoryException::RepositoryException() : exception{}, message{""}
+{
+}
+
+RepositoryException::RepositoryException(const std::string & msg): message{msg}
+{
+}
+
+const char * RepositoryException::what()
+{
+    return this->message.c_str();
+}
+
+const char * DuplicateCoatException::what()
+{
+    return "There is another coat having the same atributes!";
+}
+
+const char* DoesNotExist::what()
+{
+    return "There is no such coat!";
+}
+
